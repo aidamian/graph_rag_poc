@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "graph-rag-poc"
+version = "0.1.0"
+description = "Containerized Graph RAG proof of concept for AI-augmented cybersecurity."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "fastapi>=0.116,<1.0",
+  "httpx>=0.28,<1.0",
+  "neo4j>=5.28,<6.0",
+  "networkx>=3.4,<4.0",
+  "numpy>=1.26,<3.0",
+  "openai>=1.107.0,<2.0",
+  "pydantic>=2.9,<3.0",
+  "pydantic-settings>=2.6,<3.0",
+  "rich>=13.9,<15.0",
+  "scikit-learn>=1.5,<2.0",
+  "streamlit>=1.45,<2.0",
+  "uvicorn[standard]>=0.35,<1.0",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.3,<9.0",
+]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
